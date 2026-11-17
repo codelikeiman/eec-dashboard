@@ -1,5 +1,5 @@
 import cookieParser from "cookie-parser";
-import express from "express";
+import express, { type Express } from "express";
 import { errorHandler, HttpError } from "./lib/http.js";
 import { authenticate, checkOrigin, requireRole } from "./middleware/auth.js";
 import { securityHeaders } from "./middleware/security-headers.js";
@@ -11,8 +11,8 @@ import { studentsRouter } from "./routes/students.js";
 import { teachersRouter } from "./routes/teachers.js";
 import { usersRouter } from "./routes/users.js";
 
-export function createApp() {
-  const app = express();
+/** Adds every middleware and route to `app` (created in index.ts). */
+export function configureApp(app: Express) {
   app.disable("x-powered-by");
   // Behind Next.js rewrites / a hosting proxy: trust the first hop for IPs
   // (rate limiting) and the https flag.
