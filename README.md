@@ -94,4 +94,3 @@ npm --prefix server run typecheck
 ```bash
 npm --prefix server test
 ```
-# eec-dashboard
