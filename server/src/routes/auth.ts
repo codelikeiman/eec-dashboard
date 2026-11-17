@@ -1,5 +1,5 @@
 import { Router } from "express";
-import rateLimit from "express-rate-limit";
+import { rateLimit } from "express-rate-limit";
 import { z } from "zod";
 import { HttpError, parse } from "../lib/http.js";
 import { authClient, db } from "../lib/supabase.js";
